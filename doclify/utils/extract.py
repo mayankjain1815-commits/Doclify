@@ -21,7 +21,7 @@ def extract_file_content(file_path: str) -> list[str]:
     try:
         if path.stat().st_size > MAX_FILE_SIZE:
             logger.warning(f"Skipping large file: {file_path} ({path.stat().st_size} bytes)")
-            return [f"File too large to process: {file_path}"]
+            return [f"Error: file too large to process: {file_path}"]
     except Exception as e:
         logger.error(f"Error checking size of {file_path}: {e}")
         return [f"Error checking file size: {file_path}"]
