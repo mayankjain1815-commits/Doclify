@@ -44,4 +44,4 @@ where = ["."]
 include = ["doclify*"]
 
 [tool.setuptools.package-data]
-"doclify" = ["resources/*.gitignore"]
+"doclify" = ["resources/*.gitignore", "prompts/*.txt"]
