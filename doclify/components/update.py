@@ -78,7 +78,12 @@ def update_docs(path, model=None, provider=None):
 
     # Generate session ID
     session_id = time.strftime("%Y-%m-%d_%H-%M:%S")
-    llm_metadata = {"session_id": session_id}
+    project_name = (
+        config.get("project")
+        or config.get("project_name")
+        or os.path.basename(os.getcwd())
+    )
+    llm_metadata = {"session_id": session_id, "project_name": project_name}
 
     all_file_contents = []
     
