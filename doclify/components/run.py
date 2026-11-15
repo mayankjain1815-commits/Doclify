@@ -64,7 +64,11 @@ def run_docs(model=None, provider=None):
             llm_config.provider = provider
 
         session_id = time.strftime("%Y-%m-%d_%H-%M:%S")
-        project_name = config.get("project_name", os.path.basename(os.getcwd()))
+        project_name = (
+            config.get("project")
+            or config.get("project_name")
+            or os.path.basename(os.getcwd())
+        )
         llm_metadata = {"session_id": session_id, "project_name": project_name}
 
         if not files:
